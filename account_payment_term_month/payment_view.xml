@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Payment Terms Line -->
+        <record id="view_payment_term_line_tree_month" model="ir.ui.view">
+            <field name="name">account.payment.term.line.tree.month</field>
+            <field name="model">account.payment.term.line</field>
+            <field name="inherit_id" ref="account.view_payment_term_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="days" position="after">
+                    <field name="commercial_month"/>
+                    <field name="months"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_payment_term_line_form_month" model="ir.ui.view">
+            <field name="name">account.payment.term.line.form.month</field>
+            <field name="model">account.payment.term.line</field>
+            <field name="inherit_id" ref="account.view_payment_term_line_form"/>
+            <field name="arch" type="xml">
+                   <field name="days" position="before">
+                       <field name="commercial_month" />
+                       <field name="months" attrs="{'invisible':[('commercial_month','=',False)],'required':[('commercial_month','=',True)],}"/>
+                   </field>
+                   <xpath expr="/form/group/group/field[@name='days']" position="attributes">
+                       <attribute name="attrs">{'invisible':[('commercial_month','=',True)],'required':[('commercial_month','=',False)],}</attribute>
+                   </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>        

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <!--Override menu with permissions:-->
+    <menuitem name="account.Invoicing"
+            id="account.menu_finance"
+            groups="account.group_account_user,account.group_account_manager,account.group_account_invoice,group_account_user_outbound_invoice,group_account_user_inbound_invoice"
+            sequence="50"/>
+    
+    <menuitem 
+        id="account.menu_finance_receivables" 
+        name="Customers" 
+        parent="account.menu_finance" 
+        sequence="2"
+        groups="account.group_account_user,account.group_account_manager,account.group_account_invoice,group_account_user_outbound_invoice"
+         />
+         
+    <menuitem 
+        id="account.menu_finance_payables" 
+        name="Suppliers" 
+        parent="account.menu_finance" 
+        sequence="3"
+        groups="account.group_account_user,account.group_account_manager,account.group_account_invoice,group_account_user_inbound_invoice"
+        />
+    
+    </data>
+</openerp>        
