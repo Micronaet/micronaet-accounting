@@ -1,0 +1,177 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* report_aeroo_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-07 08:10+0000\n"
+"PO-Revision-Date: 2013-11-07 08:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Net amount"
+msgstr "Net amount"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "E-mail"
+msgstr "E-mail"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "invoice"
+msgstr "invoice"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Website"
+msgstr "Website"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Fax"
+msgstr "Fax"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Address"
+msgstr "Address"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Discount"
+msgstr "Discount"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Phone"
+msgstr "Phone"
+
+#. module: report_aeroo_invoice
+#: model:ir.actions.report.xml,name:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Invoice report"
+msgstr "Report fattura"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "INVOICE"
+msgstr "INVOICE"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Ref."
+msgstr "Ref."
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "FATTURA:"
+msgstr "FATTURA:"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "email"
+msgstr "email"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Payment terms"
+msgstr "Payment terms"
+
+#. module: report_aeroo_invoice
+#: model:ir.model,name:report_aeroo_invoice.model_account_account
+msgid "Account"
+msgstr "Conto"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "FATTURA"
+msgstr "FATTURA"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Total amount"
+msgstr "Total amount"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Invoice date"
+msgstr "Invoice date"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Product"
+msgstr "Product"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "address"
+msgstr "address"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Bank BIC"
+msgstr "Bank BIC"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "VAT"
+msgstr "VAT"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Quantity"
+msgstr "Quantity"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Comment"
+msgstr "Comment"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "INVOICE:"
+msgstr "INVOICE:"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Due date"
+msgstr "Due date"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Tax amount"
+msgstr "Tax amount"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Tax"
+msgstr "Tax"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Unit price"
+msgstr "Unit price"
+
+#. module: report_aeroo_invoice
+#: report:ir.actions.report.xml:report_aeroo_invoice.aeroo_account_invoice_report_id
+msgid "Bank"
+msgstr "Bank"
+
+#. module: report_aeroo_invoice
+#: model:ir.model,name:report_aeroo_invoice.model_account_invoice
+msgid "Invoice"
+msgstr "Fattura"
+

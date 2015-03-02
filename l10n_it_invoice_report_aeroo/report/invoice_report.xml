@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="1">
+        <record id="aeroo_account_invoice_report_id" model="ir.actions.report.xml">
+            <field name="name">Invoice report</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.invoice</field>
+            <field name="report_name">custom_account_invoice_report</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <!--<field name="out_format" eval="ref('report_aeroo_ooo.report_mimetypes_pdf_odt')" />-->
+            <field name="parser_loc">l10n_it_invoice_report_aeroo/report/invoice_parser.py</field>
+            <field name="report_rml">l10n_it_invoice_report_aeroo/report/invoice.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['account.invoice']" name="models"/>
+            <field name="name">custom_account_invoice</field>
+            <field eval="'ir.actions.report.xml,'+str(aeroo_account_invoice_report_id)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
+    </data>
+</openerp>
+
