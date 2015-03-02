@@ -32,7 +32,7 @@ class AccountInvoice(osv.osv):
     def invoice_print(self, cr, uid, ids, context=None):
         ''' Override invoice_print function
         '''
-        res = super(account_invoice, self).invoice_print(cr, uid, ids, context=context)
+        res = super(AccountInvoice, self).invoice_print(cr, uid, ids, context=context)
         
         # replace report name:
         res['report_name'] = 'custom_account_invoice_report'
