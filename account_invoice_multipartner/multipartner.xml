@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<openerp>
+   <data>
+
+    <record model="ir.ui.view" id="view_account_invoice_form_extra_partners">
+        <field name="name">account.invoice.form</field>
+        <field name="model">account.invoice</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="account.invoice_form" />
+        <field name="arch" type="xml">
+                <field name="partner_id" position="after">                
+                    <field name="extra_address" on_change="onchange_extra_address(extra_address,partner_id)" attrs="{'invisible':[('partner_id','=',False)]}"/>
+                    <field name="partner_ids" widget="many2many_tags" attrs="{'invisible':['|','|',('extra_address','=','none'),('extra_address','=',False),('partner_id','=',False)],'required':[('partner_id','!=',False),('extra_address','in',('contact','partner'))]}"/>
+                </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_res_partner_form_fax">
+        <field name="name">res.partner.form.extra_field</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='child_ids']/form/sheet/group/field[@name='phone']" position="after">                
+                    <field name="fax" />
+                </xpath>
+        </field>
+    </record>
+   </data>
+</openerp>
