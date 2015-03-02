@@ -42,8 +42,9 @@
     'depends' : [
         'base',
         'account',
+        'l10n_it_fiscalcode',
         'report_aeroo',
-        'report_aeroo_ooo',
+        #'report_aeroo_ooo',
     ],
     'init_xml' : [], 
     'data' : ['report/invoice_report.xml',],
