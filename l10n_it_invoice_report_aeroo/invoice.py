@@ -36,7 +36,7 @@ class AccountInvoice(osv.osv):
             cr, uid, ids, context=context)
         
         # replace report name:
-        res['report_name'] = 'custom_account_invoice'
+        res['report_name'] = 'custom_account_invoice_report'
         return res
         
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
