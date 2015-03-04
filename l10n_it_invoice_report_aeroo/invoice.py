@@ -32,10 +32,11 @@ class AccountInvoice(osv.osv):
     def invoice_print(self, cr, uid, ids, context=None):
         ''' Override invoice_print function
         '''
-        res = super(AccountInvoice, self).invoice_print(cr, uid, ids, context=context)
+        res = super(AccountInvoice, self).invoice_print(
+            cr, uid, ids, context=context)
         
         # replace report name:
-        res['report_name'] = 'custom_account_invoice_report'
+        res['report_name'] = 'custom_account_invoice'
         return res
         
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
