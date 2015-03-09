@@ -27,7 +27,7 @@ import time
 import openerp
 from openerp import SUPERUSER_ID
 from openerp import pooler, tools
-from openerp.osv import fields, osv, expression
+from openerp.osv import fields, osv, orm, expression
 from openerp.tools.translate import _
 from openerp.tools.float_utils import float_round
 
