@@ -34,10 +34,10 @@ from openerp.tools.float_utils import float_round
 import openerp.addons.decimal_precision as dp
 
 
-class account_payment_term_line(osv.osv):
+class AccountPaymentTermLine(orm.Model):
     ''' Add extra field for manage commercial payments
     '''
-    _name = "account.payment.term.line"
+
     _inherit = "account.payment.term.line"
 
     _columns = {
@@ -58,10 +58,10 @@ class account_payment_term_line(osv.osv):
     }
 
 
-class account_payment_term(osv.osv):
+class AccountPaymentTerm(orm.Model):
     ''' Override compunte method and add month check
     '''
-    _name = "account.payment.term"
+
     _inherit = "account.payment.term"
 
     def compute(self, cr, uid, id, value, date_ref=False, context=None):
