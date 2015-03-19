@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+       <!-- account.move.journal.report.wizard -->
+       <record id="account_move_journal_report_wizard_view" model="ir.ui.view">
+            <field name="name">Print journal move</field>
+            <field name="model">account.move.journal.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Print journal move" version="7.0">
+                   <header>
+                       <button string="Cancel" special="cancel" />
+                       <button name="action_print_journal" string="Print" type="object" icon="gtk-jump-to" class="oe_highlight" />
+                   </header>
+
+                   <group colspan="4" col="4">
+                        <field name="journal_id" />
+                        <field name="seq" />
+                        <field name="from_date" />
+                        <field name="to_date" />
+                   </group>
+                </form>
+            </field>
+      </record>
+
+      <record id="action_account_move_journal_report_wizard" model="ir.actions.act_window">
+          <field name="name">Journal move report</field>
+          <field name="res_model">account.move.journal.report.wizard</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">form</field>
+          <field name="target">new</field>
+          <field name="view_id" ref="account_move_journal_report_wizard_view"/>
+      </record>
+
+      <act_window
+        id="act_window_account_move_journal_report_wizard"
+        name="Print journal move"
+        view_mode="form"
+        target="new"
+        res_model="account.move.journal.report.wizard"
+        key2="client_action_multi"
+        src_model="account.move"/>
+
+      <!--TODO menuitem??-->
+    </data>
+</openerp>
