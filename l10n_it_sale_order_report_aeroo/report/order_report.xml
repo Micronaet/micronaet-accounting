@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="1">
+        <record id="aeroo_sale_order_report_id" model="ir.actions.report.xml">
+            <field name="name">Order report</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">sale.order</field>
+            <field name="report_name">custom_sale_order_report</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="out_format" eval="ref('report_aeroo_ooo.report_mimetypes_pdf_odt')" />
+            <field name="parser_loc">l10n_it_sale_order_report_aeroo/report/order_parser.py</field>
+            <field name="report_rml">l10n_it_sale_order_report_aeroo/report/order.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['sale.order']" name="models"/>
+            <field name="name">custom_sale_order</field>
+            <field eval="'ir.actions.report.xml,'+str(aeroo_sale_order_report_id)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
+    </data>
+</openerp>
+

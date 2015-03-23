@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<openerp>
+<data>
+    <!-- sale.order -->
+    <record model="ir.ui.view" id="view_order_form_l10n_it">
+        <field name="name">Extra sale order fields</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/notebook/page[@string='Other Information']/group/group" position="before">
+                <group name="extra_localization" colspan="4" col="4">
+                    <field name="subject" colspan="4" />
+                    <field name="execution" colspan="4" />
+                    <field name="exclusion" colspan="4" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</data>    
+</openerp>
+
