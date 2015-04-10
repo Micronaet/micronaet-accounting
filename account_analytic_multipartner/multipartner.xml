@@ -2,16 +2,37 @@
 <openerp>
    <data>
 
-    <record model="ir.ui.view" id="view_account_invoice_form_extra_partners">
-        <field name="name">account.invoice.form</field>
-        <field name="model">account.invoice</field>
-        <field name="type">form</field>
+    <record model="ir.ui.view" id="view_account_analytic_account_multi_partners">
+        <field name="name">account.analytic.account.multi.form</field>
+        <field name="model">account.analytic.account</field>
         <field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
         <field name="arch" type="xml">
-                <field name="partner_id" position="after">
-                    <field name="extra_address" on_change="onchange_extra_address(extra_address,partner_id)" attrs="{'invisible':[('partner_id','=',False)]}"/>
-                    <field name="partner_ids" widget="many2many_tags" attrs="{'invisible':['|','|',('extra_address','=','none'),('extra_address','=',False),('partner_id','=',False)],'required':[('partner_id','!=',False),('extra_address','in',('contact','partner'))]}"/>
-                </field>
+            <field name="partner_id" position="after">
+                <field name="extra_address" on_change="onchange_extra_address(extra_address,partner_id)" attrs="{'invisible':[('partner_id','=',False)]}"/>
+                <field name="partner_ids" widget="many2many_tags" attrs="{'invisible':['|','|',('extra_address','=','none'),('extra_address','=',False),('partner_id','=',False)],'required':[('partner_id','!=',False),('extra_address','in',('contact','partner'))]}"/>
+            </field>
+        </field>
+    </record>    
+    <record model="ir.ui.view" id="view_account_analytic_account_multi_partners_tree">
+        <field name="name">account.analytic.account.multi.tree</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="account.view_account_analytic_account_tree" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="partner_ids" />
+            </field>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_account_analytic_account_multi_partners_search">
+        <field name="name">account.analytic.account.multi.search</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="account.view_account_analytic_account_search" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="partner_ids" />
+                <!--<filter name="has_extra_partners" filter_domain="[('partner_ids', '!=', False)]" string="Has extra partner" />-->
+            </field>
         </field>
     </record>
    </data>
