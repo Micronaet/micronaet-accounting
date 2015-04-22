@@ -1,26 +1,24 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+###############################################################################
 #
-#    Copyright (C) 2011 Domsense srl (<http://www.domsense.com>)
-#    Copyright (C) 2011-2013 Agile Business Group sagl
-#    (<http://www.agilebg.com>)
-#    @author Lorenzo Battistini <lorenzo.battistini@agilebg.com>
-#    Ported to OpenERP 7.0 by Alex Comba <alex.comba@agilebg.com>
+# OpenERP, Open Source Management Solution
+# Copyright (C) 2001-2015 Micronaet S.r.l. (<http://www.micronaet.it>)
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
 #
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
 #
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+###############################################################################
+
 
 import logging
 import string
@@ -100,9 +98,12 @@ class product_code_bar(orm.Model):
     _inherit = "product.product"
 
     _columns = {
-        'product_code_id': fields.many2one('field.product.code', 'Product', required=True),
-        'brand_code_id': fields.many2one('field.brand.code', 'Brand', size=4, required=True),
-        'material_code_id': fields.many2one('field.material.code', 'Material', size=3, required=True),
+        'product_code_id': fields.many2one(
+            'field.product.code', 'Product', required=True),
+        'brand_code_id': fields.many2one(
+            'field.brand.code', 'Brand', size=4, required=True),
+        'material_code_id': fields.many2one(
+            'field.material.code', 'Material', size=3, required=True),
         'size_code': fields.char('Size', size=7, required=True),
         'jolly_code': fields.char('Jolly', size=2, required=True),
         }
@@ -127,7 +128,9 @@ class product_code_bar(orm.Model):
             res['value']['jolly_code'] = jolly_code.upper()
         return res
 
-    def onchange_product_code_id(self, cr, uid, ids, product_code_id, brand_code_id, material_code_id, size_code, jolly_code, context=None):
+    def onchange_product_code_id(self, cr, uid, ids, product_code_id, 
+            brand_code_id, material_code_id, size_code, jolly_code, 
+            context=None):
         ''' Read product code e write in ref code
         '''
         res = {}
@@ -135,31 +138,36 @@ class product_code_bar(orm.Model):
         if product_code_id:
             #pdb.set_trace()
             product_code_pool = self.pool.get('field.product.code')
-            product_code_proxy = product_code_pool.browse(cr, uid, product_code_id, context=context)
+            product_code_proxy = product_code_pool.browse(
+                cr, uid, product_code_id, context=context)
             res['value']['default_code'] = product_code_proxy.name
             
             if brand_code_id:
                 brand_code_pool = self.pool.get('field.brand.code')
-                brand_code_proxy = brand_code_pool.browse(cr, uid, product_code_id, context=context)
-                brand_code_proxy = brand_code_pool.browse(cr, uid, brand_code_id, context=context)
+                brand_code_proxy = brand_code_pool.browse(
+                    cr, uid, product_code_id, context=context)
+                brand_code_proxy = brand_code_pool.browse(
+                    cr, uid, brand_code_id, context=context)
                 res['value']['default_code'] += brand_code_proxy.name
                 
                 if material_code_id:    
                     material_code_pool = self.pool.get('field.material.code')
-                    material_code_proxy = material_code_pool.browse(cr, uid, product_code_id, context=context)
-                    material_code_proxy = material_code_pool.browse(cr, uid, material_code_id, context=context)
+                    material_code_proxy = material_code_pool.browse(
+                        cr, uid, product_code_id, context=context)
+                    material_code_proxy = material_code_pool.browse(
+                        cr, uid, material_code_id, context=context)
                     res['value']['default_code'] += material_code_proxy.name
                     
                     if size_code:
-                        size = size_code.upper()
-                        res['value']['default_code'] += size + "-" * (7-len(size_code))
+                        size = size_code.upper() + "-" * (7 - len(size_code))
+                        res['value']['default_code'] += size 
                         res['value']['size_code'] = size
                         
                         
                         if jolly_code:
-                            jolly = jolly_code.upper()
-                            res['value']['default_code'] += jolly + "-" * (2-len(jolly_code))
+                            jolly = jolly_code.upper() + "-" * (
+                                2 - len(jolly_code))
+                            res['value']['default_code'] += jolly 
                             res['value']['jolly_code'] = jolly
         return res
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
