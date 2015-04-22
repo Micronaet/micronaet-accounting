@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_field_product_code_form" model="ir.ui.view">
+            <field name="name">field.product.code.form</field>
+            <field name="model">field.product.code</field>
+            <field name="arch" type="xml">
+                <form string="Field product code" version = "7.0">
+                  <sheet>
+                    <group col="4" colspan="4">
+                        <field name="name" on_change="onchange_upper_product(name)"/>
+                        <newline/>
+                        <field name="note" colspan="4" />
+                    </group>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_field_brand_code_form" model="ir.ui.view">
+            <field name="name">field.brand.code.form</field>
+            <field name="model">field.brand.code</field>
+            <field name="arch" type="xml">
+                <form string="Field brand code" version = "7.0">
+                  <sheet>
+                    <group col="4" colspan="4">
+                        <field name="name" on_change="onchange_upper_brand(name)"/>
+                        <newline/>
+                        <field name="note" colspan="4" />
+                    </group>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_field_material_code_form" model="ir.ui.view">
+            <field name="name">field.material.code.form</field>
+            <field name="model">field.material.code</field>
+            <field name="arch" type="xml">
+                <form string="Field material code" version = "7.0">
+                  <sheet>
+                    <group col="4" colspan="4">
+                        <field name="name" on_change="onchange_upper_material(name)"/>
+                        <newline/>
+                        <field name="note" colspan="4" />
+                    </group>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_product_code_bar_form" model="ir.ui.view">
+            <field name="name">product.code.bar.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="description" position="before">
+                <separator string="Product code" colspan='4'/>
+                <group colspan='4' col='4'>
+                    <field name="product_code_id" on_change="onchange_product_code_id(product_code_id, brand_code_id, material_code_id, size_code, jolly_code)"/>
+                    <field name="brand_code_id" attrs="{'invisible':[('product_code_id','=',False)]}" on_change="onchange_product_code_id(product_code_id, brand_code_id, material_code_id, size_code, jolly_code)"/>
+                    <field name="material_code_id" attrs="{'invisible':[('brand_code_id','=',False)]}" on_change="onchange_product_code_id(product_code_id, brand_code_id, material_code_id, size_code, jolly_code)"/>
+                    <field name="size_code" attrs="{'invisible':[('material_code_id','=',False)]}" on_change="onchange_product_code_id(product_code_id, brand_code_id, material_code_id, size_code, jolly_code)"/>
+                    <field name="jolly_code" attrs="{'invisible':[('size_code','=',False)]}" on_change="onchange_product_code_id(product_code_id, brand_code_id, material_code_id, size_code, jolly_code)"/>
+                </group>
+                </field>
+            </field>
+        </record>
+
+        <record id="action_product_code_bar" model="ir.actions.act_window">
+            <field name="name">Product code</field>
+            <field name="res_model">product.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="product.product_product_tree_view"/>
+        </record>
+
+        <record id="view_product_code_bar_search" model="ir.ui.view">
+        <field name="name">product.code.bar.search</field>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <search string="Product code">
+                <field name="product_code_id"/>
+                <field name="brand_code_id"/>
+                <field name="material_code_id"/>
+                <field name="size_code"/>
+                <field name="jolly_code"/>
+                <separator/>
+                <group expand="1" string="Group By...">
+                    <filter string="Product code" domain="[]" context="{'group_by':'product_code_id'}"/>
+                    <filter string="Brand code" domain="[]" context="{'group_by':'brand_code_id'}"/>
+                    <filter string="Material code" domain="[]" context="{'group_by':'material_code_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <!--CONFIGURATION PRODUCT CODE-->
+
+        <record id="view_field_product_code_tree" model="ir.ui.view">
+            <field name="name">field.product.code.tree</field>
+            <field name="model">field.product.code</field>
+            <field name="arch" type="xml">
+                <tree string="Product code">
+                    <field name="name" />
+                    <field name="note" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_field_product_code" model="ir.actions.act_window">
+            <field name="name">Field product code</field>
+            <field name="res_model">field.product.code</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_field_product_code_tree"/>
+        </record>
+
+        <record id="view_field_brand_code_tree" model="ir.ui.view">
+            <field name="name">field.brand.code.tree</field>
+            <field name="model">field.brand.code</field>
+            <field name="arch" type="xml">
+                <tree string="Brand code">
+                    <field name="name" />
+                    <field name="note" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_field_brand_code" model="ir.actions.act_window">
+            <field name="name">Field brand code</field>
+            <field name="res_model">field.brand.code</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_field_brand_code_tree"/>
+        </record>
+
+        <record id="view_field_material_code_tree" model="ir.ui.view">
+            <field name="name">field.material.code.tree</field>
+            <field name="model">field.material.code</field>
+            <field name="arch" type="xml">
+                <tree string="Material code">
+                    <field name="name" />
+                    <field name="note" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_field_material_code" model="ir.actions.act_window">
+            <field name="name">Field material code</field>
+            <field name="res_model">field.material.code</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_field_material_code_tree"/>
+        </record>
+
+    <!--MENUITEM-->
+
+            <menuitem name="Product code" parent="base.menu_product" id="menu_product_code" sequence="1" action='action_product_code_bar' />
+        <menuitem name="Product code" parent="product.prod_config_main" id="menu_product_code_configuration" sequence="90"/>
+            <menuitem name="Product" parent="menu_product_code_configuration" id="menu_product_code_configuration_product" sequence="10" action='action_field_product_code' />
+            <menuitem name="Brand" parent="menu_product_code_configuration" id="menu_product_code_configuration_brand" sequence="20" action='action_field_brand_code' />
+            <menuitem name="Material" parent="menu_product_code_configuration" id="menu_product_code_configuration_material" sequence="30" action='action_field_material_code' />
+
+    </data>
+</openerp>
+
+
