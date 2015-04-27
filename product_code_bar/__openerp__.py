@@ -24,13 +24,14 @@
     'category': 'Accounting & Finance',
     'summary': "Manages the product code",
     'description': "",
-    'author': 'Agile Business Group',
-    'website': 'http://www.agilebg.com',
+    'author': 'Micronaet S.r.l.',
+    'website': 'http://www.micronaet.it',
     'license': 'AGPL-3',
     "depends": [
         'product',
     ],
     "data": [
+        'security/ir.model.access.csv',
         'product_code_view.xml'
     ],
     "active": False,

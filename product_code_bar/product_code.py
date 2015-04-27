@@ -99,13 +99,13 @@ class product_code_bar(orm.Model):
 
     _columns = {
         'product_code_id': fields.many2one(
-            'field.product.code', 'Product', required=True),
+            'field.product.code', 'Product'),
         'brand_code_id': fields.many2one(
-            'field.brand.code', 'Brand', size=4, required=True),
+            'field.brand.code', 'Brand', size=4),
         'material_code_id': fields.many2one(
-            'field.material.code', 'Material', size=3, required=True),
-        'size_code': fields.char('Size', size=7, required=True),
-        'jolly_code': fields.char('Jolly', size=2, required=True),
+            'field.material.code', 'Material', size=3),
+        'size_code': fields.char('Size', size=7),
+        'jolly_code': fields.char('Jolly', size=2),
         }
 
     #================#
