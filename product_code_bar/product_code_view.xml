@@ -80,6 +80,7 @@
         <field name="model">product.product</field>
         <field name="arch" type="xml">
             <search string="Product code">
+                <field name="default_code"/>
                 <field name="product_code_id"/>
                 <field name="brand_code_id"/>
                 <field name="material_code_id"/>
