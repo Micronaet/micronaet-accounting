@@ -159,9 +159,8 @@ class product_code_bar(orm.Model):
                         res['value']['size_code'] = size
                                                 
                         if jolly_code:
-                            jolly = jolly_code.upper()
-                            res['value']['default_code'] += jolly + "-" * (
-                                2 - len(jolly_code))
+                            jolly = jolly_code.upper() + "-" * (2 - len(jolly_code))
+                            res['value']['default_code'] += jolly
                             res['value']['jolly_code'] = jolly
         return res
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
