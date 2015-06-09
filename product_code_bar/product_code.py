@@ -132,7 +132,6 @@ class product_code_bar(orm.Model):
         res = {}
         res['value'] = {}
         if product_code_id:
-            #pdb.set_trace()
             product_code_pool = self.pool.get('field.product.code')
             product_code_proxy = product_code_pool.browse(
                 cr, uid, product_code_id, context=context)
@@ -155,9 +154,8 @@ class product_code_bar(orm.Model):
                     res['value']['default_code'] += material_code_proxy.name
                     
                     if size_code:
-                        size = size_code.upper()
-                        res['value']['default_code'] += size + "-" * (
-                            7-len(size_code))
+                        size = size_code.upper() + "-" * (7 - len(size_code))
+                        res['value']['default_code'] += size 
                         res['value']['size_code'] = size
                                                 
                         if jolly_code:
